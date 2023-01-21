@@ -1,0 +1,40 @@
+/* normalize css starts here */
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+picture {
+  display: contents;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* normalize css ends here */
+
+@import './fonts.scss';
+
+$dark50: #fbf0f2;
+$dark100: #dcd8d9;
+$dark200: #bfbfbf;
+$dark300: #a6a6a6;
+$dark400: #8c8c8c;
+$dark500: #737373;
+$dark600: #595959;
+$dark700: #404040;
+$dark800: #282626;
+$dark900: #150a0d;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: $dark700;
+}
