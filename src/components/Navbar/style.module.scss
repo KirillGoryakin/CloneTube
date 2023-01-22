@@ -1,0 +1,69 @@
+@import '../../assets/scss/variables.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+
+  background: $dark700;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  
+  nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    
+    .logo {
+      display: block;
+      height: 100%;
+
+      img {
+        height: 100%;
+      }
+    }
+  
+    .searchBar {
+      display: flex;
+      width: 500px;
+      margin: auto;
+
+      .inputWrap {
+        display: flex;
+        flex-grow: 1;
+        padding: 1rem 2rem;
+        
+        background: $dark100;
+        border: 2px solid $dark200;
+        border-radius: 150px 0 0 150px;
+        cursor: text;
+
+        input {
+          width: 100%;
+          font-size: 2rem;
+
+          background: transparent;
+          border: none;
+          outline: none;
+        }
+      }
+  
+      button {
+        width: 6rem;
+
+        background: $dark100;
+        border: 2px solid $dark200;
+        border-radius: 0 150px 150px 0;
+        cursor: pointer;
+
+        transition: background 0.1s ease-in-out;
+        &:hover { background: $dark200; }
+      }
+    }
+  }
+}
