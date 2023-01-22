@@ -1,0 +1,9 @@
+@import '../../assets/scss/variables.scss';
+
+.videoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 3rem;
+  padding-top: 6rem;
+}

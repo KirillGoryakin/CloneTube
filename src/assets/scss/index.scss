@@ -28,6 +28,10 @@ html { font-size: 8px; }
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: $dark700;
-  padding-top: 8rem;
+  background: $dark800;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 8rem auto 0;
 }
