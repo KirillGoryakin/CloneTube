@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Video } from 'appTypes';
+import { TrendingVideoInfo } from 'appTypes';
 import style from './style.module.scss';
 import { VideoCard } from 'components/VideoCard';
 
 const HomePage = () => {
-  const [videos, setVideos] = useState<Video[]>([]);
+  const [videos, setVideos] = useState<TrendingVideoInfo[]>([]);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -29,7 +29,7 @@ const HomePage = () => {
   return (
     <div className={style.videoGrid}>
       {videos.map(video => (
-        <VideoCard key={video.videoId} video={video} />
+        <VideoCard key={video.videoId} video={video} variant='trending' />
       ))}
     </div>
   );

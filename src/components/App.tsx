@@ -10,7 +10,7 @@ const router = createBrowserRouter(createRoutesFromChildren(
   <Route path='/' element={<Layout />}>
     <Route index element={<HomePage />} />
     <Route path='channel/:channelId' element={<ChannelPage />} />
-    <Route path='video/:videId' element={<VideoPage />} />
+    <Route path='video/:videoId' element={<VideoPage />} />
     <Route path='search' element={<SearchPage />} />
   </Route>
 ));

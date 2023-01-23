@@ -1,51 +1,27 @@
-import { Video } from 'appTypes';
-import { formatViews } from 'utils';
-import style from './style.module.scss';
+import { RelatedVideoInfo, TrendingVideoInfo } from 'appTypes';
+import { RelatedVideoCard } from './RelatedVideoCard';
+import { TrendingVideoCard } from './TrendingVideoCard';
 
-type Props = {
-  video: Video;
+type Trending = {
+  video: TrendingVideoInfo;
+  variant: 'trending';
 };
 
-const VideoCard: React.FC<Props> = ({ video }) => {
-  const {
-    thumbnail,
-    lengthText,
-    title,
-    channelThumbnail,
-    channelTitle,
-    viewCount,
-    publishedText,
-  } = video;
+type Related = {
+  video: RelatedVideoInfo;
+  variant: 'related';
+};
+
+type Props = Trending | Related;
+
+const VideoCard: React.FC<Props> = ({ variant, video }) => {
+  if (variant === 'trending')
+    return <TrendingVideoCard video={video} />
   
-  return (
-    <div className={style.videoCard}>
-      <div className={style.thumbnail}>
-        <img
-          src={thumbnail.pop()?.url}
-          alt='Thumbnail'
-        />
+  if (variant === 'related')
+    return <RelatedVideoCard video={video} />
 
-        <div className={style.videoLength}>{lengthText}</div>
-      </div>
-
-      <div className={style.videoMeta}>
-        <img
-          className={style.avatar}
-          src={channelThumbnail.pop()?.url}
-          alt='Avatar'
-        />
-
-        <div>
-          <div className={style.title}>{title}</div>
-          <div className={style.channelTitle}>{channelTitle}</div>
-
-          <div className={style.viewsAndDate}>
-            {`${formatViews(Number(viewCount))} views • ${publishedText}`}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return null;
 }
 
 export { VideoCard };
