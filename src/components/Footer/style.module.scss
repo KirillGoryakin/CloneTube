@@ -1,0 +1,57 @@
+@import '../../assets/scss/variables.scss';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  
+  background: $dark700;
+  box-shadow: 4px -4px 3px rgba(0, 0, 0, 0.5);
+
+  .top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .logo {
+      width: 194px;
+      margin-right: 1rem;
+    }
+
+    .author {
+      font-size: 4rem;
+      font-weight: 600;
+      color: #f1f1f1;
+      
+      a {
+        margin-left: 1rem;
+        
+        text-decoration: underline;
+        transition: color 0.1s ease-in-out;
+
+        &:hover {
+          color: #aaa;
+        }
+      }
+    }
+  }
+
+  .bottom {
+
+    .repository {
+      margin-left: 1rem;
+
+      font-size: 4rem;
+      font-weight: 600;
+      color: #f1f1f1;
+      text-decoration: underline;
+      transition: color 0.1s ease-in-out;
+  
+      &:hover {
+        color: #aaa;
+      }
+    }
+  }
+}
