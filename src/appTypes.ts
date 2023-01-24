@@ -52,3 +52,50 @@ export interface RelatedVideoInfo {
   channelId: string;
   authorThumbnail: Thumbnail[];
 };
+
+export interface ChannelVideoInfo {
+  videoId: string;
+  title: string;
+  viewCount: string;
+  publishedText: string;
+  lengthText: string;
+  thumbnail: Thumbnail[];
+};
+
+export interface ChannelInfo {
+  meta: {
+    title: string;
+    description: string;
+    thumbnail: Thumbnail[];
+    image: {
+      banner: Thumbnail[];
+      tvBanner: Thumbnail[];
+      mobileBanner: Thumbnail[];
+    };
+    subscriberCount: string;
+    keywords: string[];
+    isFamilySafe: boolean;
+    availableCountries: string[];
+  };
+  continuation: string;
+  data: ChannelVideoInfo[];
+};
+
+export interface Comment {
+  commentId: string;
+  authorDisplayName: string;
+  authorChannelId: string;
+  authorProfileImageUrl: Thumbnail[];
+  textDisplay: string;
+  publishedTimeText: string;
+  likesCount: string;
+  replyCount: number;
+  replyToken: string;
+};
+
+export interface VideoComments {
+  commentsCount: string;
+  continuation: string;
+  data: Comment[];
+  msg: string;
+};

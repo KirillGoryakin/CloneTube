@@ -1,19 +1,11 @@
-@import '../../assets/scss/variables.scss';
 
 .videoCard {
   display: flex;
   flex-direction: column;
   width: 280px;
-  
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.1s ease-in-out;
-
-  &:hover {
-    background: #3d3d3d;
-  }
 
   .thumbnail {
+    display: block;
     position: relative;
     width: 100%;
     height: 156px;
@@ -35,7 +27,7 @@
       font-weight: 500;
       color: #fff;
       background: rgba(0, 0, 0, 0.8);
-      border-radius: 5  px;
+      border-radius: 5px;
     }
   }
 
@@ -44,6 +36,8 @@
     gap: 1rem;
 
     .title {
+      display: block;
+      
       font-size: 2rem;
       font-weight: 500;
       line-height: 2.8rem;
@@ -51,6 +45,7 @@
     }
   
     .avatar {
+      display: block;
       align-self: flex-start;
 
       img {
@@ -61,6 +56,8 @@
     }
   
     .channelTitle {
+      display: block;
+      
       font-size: 1.8rem;
       font-weight: 400;
       line-height: 2.5rem;
@@ -68,6 +65,8 @@
     }
 
     .viewsAndDate {
+      display: block;
+      
       font-size: 1.8rem;
       font-weight: 400;
       line-height: 2.5rem;

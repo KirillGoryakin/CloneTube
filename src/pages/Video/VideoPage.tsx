@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import YouTube from 'react-youtube';
 import style from './style.module.scss';
-import { RelatedVideoInfo, VideoInfo } from 'appTypes';
+import { ChannelInfo, RelatedVideoInfo, VideoInfo } from 'appTypes';
+import { getOptions } from 'utils';
+import { RelatedVideoCard } from 'components/VideoCard/RelatedVideoCard';
+import { VideoBlock } from './VideoBlock';
 
 const VideoPage = () => {
   const params = useParams();
@@ -11,55 +13,48 @@ const VideoPage = () => {
 
   const [videoInfo, setVideoInfo] = useState<VideoInfo>();
   const [relatedVideos, setRelatedVideos] = useState<RelatedVideoInfo[]>();
+  const [channel, setChannel] = useState<ChannelInfo>();
 
   useEffect(() => {
     const fetchVideoInfo = async () => {
-      const options = {
-        method: 'GET',
-        url: 'https://yt-api.p.rapidapi.com/video',
-        params: { id: videoId },
-        headers: {
-          'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
-          'X-RapidAPI-Host': process.env.REACT_APP_X_RAPID_API_HOST,
-        }
-      };
-
-      const { data } = await axios.request(options);
+      const { data } = await axios.request(
+        getOptions('video', { id: videoId }));
       setVideoInfo(data);
     }
 
     const fetchRelatedVideos = async () => {
-      const options = {
-        method: 'GET',
-        url: 'https://yt-api.p.rapidapi.com/related',
-        params: { id: videoId },
-        headers: {
-          'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
-          'X-RapidAPI-Host': process.env.REACT_APP_X_RAPID_API_HOST,
-        }
-      };
-
-      const { data } = await axios.request(options);
+      const { data } = await axios.request(
+        getOptions('related', { id: videoId }));
       setRelatedVideos(data.data);
     };
 
     fetchVideoInfo();
-    // fetchRelatedVideos();
+    fetchRelatedVideos();
   }, [videoId]);
+
+  useEffect(() => {
+    const fetchChannel = async (channelId: string) => {
+      const { data } = await axios.request(
+        getOptions('channel', { id: channelId }));
+      setChannel(data);
+    }
+
+    if (videoInfo?.channelId)
+      fetchChannel(videoInfo.channelId);
+  }, [videoInfo]);
   
   return (
     <div className={style.pageWrap}>
-      <div className={style.videoBlock}>
-        <YouTube
-          className={style.video}
-          videoId={videoId}
-        />
-
-        <div className={style.videoTitle}>{videoInfo?.title}</div>
-      </div>
+      <VideoBlock
+        videoId={videoId}
+        videoInfo={videoInfo}
+        channel={channel}
+      />
 
       <div className={style.relatedVideos}>
-        
+        {relatedVideos?.map(video => (
+          <RelatedVideoCard key={video.videoId} video={video} />
+        ))}
       </div>
     </div>
   );

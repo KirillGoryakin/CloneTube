@@ -1,4 +1,4 @@
-import { formatViews } from 'utils';
+import { formatViews, getOptions } from 'utils';
 
 describe('Utils', () => {
   it('should format views with "formatViews" function', () => {
@@ -13,6 +13,22 @@ describe('Utils', () => {
 
     expect(formatViews(2896926)).toEqual('2.9M');
     expect(formatViews(2896926000)).toEqual('2.9B');
+  });
+
+  it('should return options object with "getOptions" function', () => {
+    const testParams = { id: 123, someParam: 'test', another: true, };
+    
+    const expectedOptions = {
+      method: 'GET',
+      url: 'https://yt-api.p.rapidapi.com/someEndPoint',
+      params: testParams,
+      headers: {
+        'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
+        'X-RapidAPI-Host': process.env.REACT_APP_X_RAPID_API_HOST,
+      }
+    };
+
+    expect(getOptions('someEndPoint', testParams)).toEqual(expectedOptions);
   });
 });
 

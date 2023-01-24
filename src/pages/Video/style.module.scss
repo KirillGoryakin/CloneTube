@@ -1,29 +1,12 @@
-@import '../../assets/scss/variables.scss';
+$whiteFont: #f1f1f1;
 
 .pageWrap {
-
-  .videoBlock {
-
-    .video {
-      width: 800px;
-      height: 452px;
-      margin-bottom: 2rem;
-
-      iframe {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .videoTitle {
-      font-size: 2.8rem;
-      font-weight: 600;
-      line-height: 3.5rem;
-      color: #f1f1f1;
-    }
-  }
+  display: flex;
+  justify-content: space-between;
 
   .relatedVideos {
-
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }
