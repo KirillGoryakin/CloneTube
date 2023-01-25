@@ -4,8 +4,8 @@ import axios from 'axios';
 import style from './style.module.scss';
 import { ChannelInfo, RelatedVideoInfo, VideoInfo } from 'appTypes';
 import { getOptions } from 'utils';
-import { RelatedVideoCard } from 'components/VideoCard/RelatedVideoCard';
 import { VideoBlock } from './VideoBlock';
+import { VideoCard } from 'components/VideoCard';
 
 const VideoPage = () => {
   const params = useParams();
@@ -53,7 +53,7 @@ const VideoPage = () => {
 
       <div className={style.relatedVideos}>
         {relatedVideos?.map(video => (
-          <RelatedVideoCard key={video.videoId} video={video} />
+          <VideoCard key={video.videoId} video={video} variant='related' />
         ))}
       </div>
     </div>
