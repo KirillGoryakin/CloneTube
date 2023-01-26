@@ -54,7 +54,7 @@
         }
       }
   
-      button {
+      .submit {
         width: 6rem;
 
         background: $dark100;
@@ -64,6 +64,56 @@
 
         transition: background 0.1s ease-in-out;
         &:hover { background: $dark200; }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    nav {
+      padding: 0 4rem;
+
+      .searchBar {
+        margin: 0;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .header nav .searchBar{
+    width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header nav {
+    .mobileSearchButton {
+      width: 5rem;
+      height: 5rem;
+      margin-left: auto;
+      padding: 1rem;
+  
+      background: transparent;
+      border: 0;
+  
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+  
+        color: #fff;
+      }
+    }
+
+    .searchBar {
+      display: none;
+      width: 100%;
+
+      &.show {
+        display: flex;
       }
     }
   }

@@ -41,8 +41,6 @@
   .bottom {
 
     .repository {
-      margin-left: 1rem;
-
       font-size: 4rem;
       font-weight: 600;
       color: #f1f1f1;
@@ -51,6 +49,37 @@
   
       &:hover {
         color: #aaa;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 2rem;
+
+    .top {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1rem;
+
+      .logo {
+        width: 130px;
+        margin-right: 1rem;
+      }
+
+      .author {
+        font-size: 3rem;
+
+        a {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    .bottom {
+      .repository {
+        font-size: 3rem;
       }
     }
   }

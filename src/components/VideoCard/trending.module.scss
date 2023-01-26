@@ -74,3 +74,45 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .videoCard {
+    width: 100%;
+
+    .thumbnail {
+      height: auto;
+  
+      img {
+        border-radius: 0;
+      }
+  
+      .videoLength {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    .videoMeta {
+      padding: 0 2rem;
+      gap: 2rem;
+    
+      .title {
+        font-size: 1.8rem;
+      }
+    
+      .avatar {
+        img {
+          width: 5rem;
+        }
+      }
+    
+      .channelTitle {
+        font-size: 1.5rem;
+      }
+    
+      .viewsAndDate {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
