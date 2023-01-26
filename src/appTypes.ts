@@ -53,6 +53,26 @@ export interface RelatedVideoInfo {
   authorThumbnail: Thumbnail[];
 };
 
+export interface SearchVideoInfo {
+  type: string;
+  videoId: string;
+  title: string;
+  channelTitle: string;
+  channelId: string;
+  description: string;
+  viewCount: string;
+  publishedText: string;
+  lengthText: string;
+  thumbnail: Thumbnail[];
+  channelThumbnail: Thumbnail[];
+};
+
+export interface SearchInfo {
+  continuation: string;
+  estimatedResults: string;
+  data: SearchVideoInfo[];
+};
+
 export interface ChannelVideoInfo {
   videoId: string;
   title: string;

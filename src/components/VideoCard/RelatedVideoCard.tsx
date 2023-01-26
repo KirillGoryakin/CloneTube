@@ -1,6 +1,6 @@
 import { RelatedVideoInfo } from 'appTypes';
 import { Link } from 'react-router-dom';
-import { formatViews } from 'utils';
+import { formatNumber } from 'utils';
 import style from './related.module.scss';
 
 type Props = {
@@ -51,7 +51,7 @@ const RelatedVideoCard: React.FC<Props> = ({ video }) => {
           className={style.viewsAndDate}
           to={`/video/${videoId}`}
         >
-          {`${formatViews(Number(viewCount))} views • ${publishedTimeText}`}
+          {`${formatNumber(Number(viewCount))} views • ${publishedTimeText}`}
         </Link>
       </div>
     </div>

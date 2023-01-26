@@ -1,13 +1,13 @@
-import { TrendingVideoInfo } from 'appTypes';
+import { SearchVideoInfo } from 'appTypes';
 import { Link } from 'react-router-dom';
 import { formatNumber } from 'utils';
-import style from './trending.module.scss';
+import style from './search.module.scss';
 
 type Props = {
-  video: TrendingVideoInfo;
+  video: SearchVideoInfo;
 };
 
-const TrendingVideoCard: React.FC<Props> = ({ video }) => {
+const SearchVideoCard: React.FC<Props> = ({ video }) => {
   const {
     videoId,
     channelId,
@@ -18,6 +18,7 @@ const TrendingVideoCard: React.FC<Props> = ({ video }) => {
     channelTitle,
     viewCount,
     publishedText,
+    description,
   } = video;
 
   return (
@@ -36,21 +37,25 @@ const TrendingVideoCard: React.FC<Props> = ({ video }) => {
 
       <div className={style.videoMeta}>
         <Link
-          className={style.avatar}
-          to={`/channel/${channelId}`}
+          className={style.title}
+          to={`/video/${videoId}`}
         >
-          <img
-            src={channelThumbnail.slice(-1)[0].url}
-            alt='Avatar'
-          />
+          {title}
         </Link>
 
-        <div>
+        <Link
+          className={style.viewsAndDate}
+          to={`/video/${videoId}`}
+        >
+          {`${formatNumber(Number(viewCount))} views • ${publishedText}`}
+        </Link>
+        
+        <div className={style.channel}>
           <Link
-            className={style.title}
-            to={`/video/${videoId}`}
+            className={style.channelAvatar}
+            to={`/channel/${channelId}`}
           >
-            {title}
+            <img src={channelThumbnail.slice(-1)[0].url} alt='Avatar' />
           </Link>
           <Link
             className={style.channelTitle}
@@ -58,17 +63,14 @@ const TrendingVideoCard: React.FC<Props> = ({ video }) => {
           >
             {channelTitle}
           </Link>
+        </div>
 
-          <Link
-            className={style.viewsAndDate}
-            to={`/video/${videoId}`}
-          >
-            {`${formatNumber(Number(viewCount))} views • ${publishedText}`}
-          </Link>
+        <div className={style.description}>
+          {description}
         </div>
       </div>
     </div>
   );
 }
 
-export { TrendingVideoCard };
+export { SearchVideoCard };

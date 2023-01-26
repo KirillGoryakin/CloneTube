@@ -1,6 +1,6 @@
 import { ChannelVideoInfo } from 'appTypes';
 import { Link } from 'react-router-dom';
-import { formatViews } from 'utils';
+import { formatNumber } from 'utils';
 import style from './channel.module.scss';
 
 type Props = {
@@ -43,7 +43,7 @@ const ChannelVideoCard: React.FC<Props> = ({ video }) => {
           className={style.viewsAndDate}
           to={`/video/${videoId}`}
         >
-          {`${formatViews(Number(viewCount))} views • ${publishedText}`}
+          {`${formatNumber(Number(viewCount))} views • ${publishedText}`}
         </Link>
       </div>
     </div>

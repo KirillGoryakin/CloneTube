@@ -1,7 +1,8 @@
-import { ChannelVideoInfo, RelatedVideoInfo, TrendingVideoInfo } from 'appTypes';
+import { ChannelVideoInfo, RelatedVideoInfo, SearchVideoInfo, TrendingVideoInfo } from 'appTypes';
 import { RelatedVideoCard } from './RelatedVideoCard';
 import { TrendingVideoCard } from './TrendingVideoCard';
 import { ChannelVideoCard } from './ChannelVideoCard';
+import { SearchVideoCard } from './SearchVideoCard';
 
 type Trending = {
   video: TrendingVideoInfo;
@@ -18,7 +19,12 @@ type Channel = {
   variant: 'channel';
 };
 
-type Props = Trending | Related | Channel;
+type Search = {
+  video: SearchVideoInfo;
+  variant: 'search';
+};
+
+type Props = Trending | Related | Channel | Search;
 
 const VideoCard: React.FC<Props> = ({ variant, video }) => {
   if (variant === 'trending')
@@ -29,6 +35,9 @@ const VideoCard: React.FC<Props> = ({ variant, video }) => {
 
   if (variant === 'channel')
     return <ChannelVideoCard video={video} />
+
+  if (variant === 'search')
+    return <SearchVideoCard video={video} />
 
   return null;
 }

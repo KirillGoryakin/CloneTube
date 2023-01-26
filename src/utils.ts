@@ -9,8 +9,8 @@ export const getOptions = (endpoint: string, params: object) => ({
   }
 });
 
-export const formatViews = (views: number) =>
+export const formatNumber = (num: number) =>
   Intl.NumberFormat('en-US', {
     notation: "compact",
     maximumFractionDigits: 1,
-  }).format(views);
+  }).format(num);

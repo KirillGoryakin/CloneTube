@@ -1,5 +1,6 @@
 import style from './style.module.scss';
 import { TfiSearch } from 'react-icons/tfi';
+import { useNavigate } from 'react-router';
 
 type SendFormEvent = {
   target: {
@@ -8,6 +9,7 @@ type SendFormEvent = {
 };
 
 const SearchBar = () => {
+  const navigate = useNavigate();
 
   const handleSubmit: React.FormEventHandler = (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ const SearchBar = () => {
       { target } = e as typeof e & SendFormEvent,
       s = target.s.value.trim();
 
-    // Search...
+    navigate(`/search?s=${s}`);
   }
   
   return (
