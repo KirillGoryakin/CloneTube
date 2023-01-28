@@ -69,3 +69,9 @@ $whiteFont: #f1f1f1;
     }
   }
 }
+
+@media (max-width: 900px) {
+  .comments {
+    display: none;
+  }
+}

@@ -24,30 +24,32 @@ const VideoBlock: React.FC<Props> = (props) => {
         videoId={videoId}
       />
 
-      <div className={style.videoTitle}>{videoInfo?.title}</div>
+      <div className={style.videoMeta}>
+        <div className={style.videoTitle}>{videoInfo?.title}</div>
 
-      <Link
-        className={style.channel}
-        to={`/channel/${videoInfo?.channelId}`}
-      >
-        <img
-          className={style.avatar}
-          src={channel?.meta.thumbnail.slice(-1)[0].url}
-          alt='Avatar'
-        />
+        <Link
+          className={style.channel}
+          to={`/channel/${videoInfo?.channelId}`}
+        >
+          <img
+            className={style.avatar}
+            src={channel?.meta.thumbnail.slice(-1)[0].url}
+            alt='Avatar'
+          />
 
-        <div className={style.meta}>
-          <div className={style.title}>
-            {channel?.meta.title}
+          <div className={style.channelMeta}>
+            <div className={style.title}>
+              {channel?.meta.title}
+            </div>
+            <div className={style.subscribers}>
+              {`${channel?.meta.subscriberCount} subscribers`}
+            </div>
           </div>
-          <div className={style.subscribers}>
-            {`${channel?.meta.subscriberCount} subscribers`}
-          </div>
+        </Link>
+
+        <div className={style.description}>
+          {videoInfo?.description}
         </div>
-      </Link>
-
-      <div className={style.description}>
-        {videoInfo?.description}
       </div>
 
       <Comments videoId={videoId} />

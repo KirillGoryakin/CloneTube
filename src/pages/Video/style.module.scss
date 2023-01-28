@@ -10,3 +10,25 @@ $whiteFont: #f1f1f1;
     gap: 2rem;
   }
 }
+
+@media (max-width: 900px) {
+  .pageWrap {
+    flex-direction: column;
+
+    .relatedVideos {
+      width: 580px;
+      margin: 0 auto;
+      flex-direction: unset;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .pageWrap {
+    .relatedVideos {
+      width: 280px;
+      margin: 0 auto;
+    }
+  }
+}
