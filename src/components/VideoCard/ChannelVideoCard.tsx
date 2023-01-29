@@ -48,6 +48,6 @@ const ChannelVideoCard: React.FC<Props> = ({ video }) => {
       </div>
     </div>
   );
-}
+};
 
 export { ChannelVideoCard };

@@ -22,6 +22,6 @@ const TopBar: React.FC<Props> = ({ channel }) => {
       </div>
     </div>
   );
-}
+};
 
 export { TopBar };

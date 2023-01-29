@@ -20,7 +20,7 @@ const VideoPage = () => {
       const { data } = await axios.request(
         getOptions('video', { id: videoId }));
       setVideoInfo(data);
-    }
+    };
 
     const fetchRelatedVideos = async () => {
       const { data } = await axios.request(
@@ -37,7 +37,7 @@ const VideoPage = () => {
       const { data } = await axios.request(
         getOptions('channel', { id: channelId }));
       setChannel(data);
-    }
+    };
 
     if (videoInfo?.channelId)
       fetchChannel(videoInfo.channelId);
@@ -58,6 +58,6 @@ const VideoPage = () => {
       </div>
     </div>
   );
-}
+};
 
 export { VideoPage };

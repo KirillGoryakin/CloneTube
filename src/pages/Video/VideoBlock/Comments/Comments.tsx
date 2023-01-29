@@ -22,7 +22,7 @@ const Comments: React.FC<Props> = ({ videoId }) => {
       const { data } = await axios(getOptions('comments', { id: videoId }));
       setComments(data.data);
       setCount(data.commentsCount);
-    }
+    };
 
     fetchComments();
   }, [videoId]);
@@ -41,6 +41,6 @@ const Comments: React.FC<Props> = ({ videoId }) => {
       </div>
     </div>
   );
-}
+};
 
 export { Comments };

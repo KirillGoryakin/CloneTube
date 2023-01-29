@@ -14,6 +14,6 @@ const ChannelVideos: React.FC<Props> = ({ videos }) => {
       ))}
     </div>
   );
-}
+};
 
 export { ChannelVideos };

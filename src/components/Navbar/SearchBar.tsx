@@ -28,20 +28,20 @@ const SearchBar = () => {
     if (!s) return;
       
     navigate(`/search?s=${s}`);
-  }
+  };
 
   const handleMobileButtonClick = () => {
     setSearch(true);
     formRef.current?.classList.add(style.show);
     inputRef.current?.focus();
-  }
+  };
 
   const handleClickAway = () => {
     if (!mobile) return;
 
     formRef.current?.classList.remove(style.show);
     setSearch(false);
-  }
+  };
   
   return (
     <>
@@ -72,6 +72,6 @@ const SearchBar = () => {
       )}
     </>
   );
-}
+};
 
 export { SearchBar };

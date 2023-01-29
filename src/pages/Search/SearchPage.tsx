@@ -17,10 +17,10 @@ const SearchPage = () => {
         getOptions('search', { query: params.get('s') }));
       
       setSearch(data);
-    }
+    };
     
     fetchVideos();
-  }, [params])
+  }, [params]);
   
   
   return (
@@ -38,6 +38,6 @@ const SearchPage = () => {
       </div>
     </div>
   );
-}
+};
 
 export { SearchPage };

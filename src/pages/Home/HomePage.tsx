@@ -16,12 +16,12 @@ const HomePage = () => {
         headers: {
           'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
           'X-RapidAPI-Host': process.env.REACT_APP_X_RAPID_API_HOST,
-        }
+        },
       };
 
       const { data } = await axios.request(options);
       setVideos(data.data);
-    }
+    };
 
     fetchVideos();
   }, []);
@@ -33,6 +33,6 @@ const HomePage = () => {
       ))}
     </div>
   );
-}
+};
 
 export { HomePage };

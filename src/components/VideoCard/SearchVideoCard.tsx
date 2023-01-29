@@ -71,6 +71,6 @@ const SearchVideoCard: React.FC<Props> = ({ video }) => {
       </div>
     </div>
   );
-}
+};
 
 export { SearchVideoCard };

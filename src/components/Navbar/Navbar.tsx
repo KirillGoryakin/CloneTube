@@ -27,6 +27,6 @@ const Navbar = () => {
       </nav>
     </header>
   );
-}
+};
 
 export { Navbar };

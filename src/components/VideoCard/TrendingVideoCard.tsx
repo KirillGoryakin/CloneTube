@@ -69,6 +69,6 @@ const TrendingVideoCard: React.FC<Props> = ({ video }) => {
       </div>
     </div>
   );
-}
+};
 
 export { TrendingVideoCard };

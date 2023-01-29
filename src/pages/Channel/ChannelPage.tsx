@@ -19,7 +19,7 @@ const ChannelPage = () => {
         getOptions('channel', { id: channelId }));
 
       setChannel(data);
-    }
+    };
 
     fetchChannel();
   }, [channelId]);
@@ -37,6 +37,6 @@ const ChannelPage = () => {
       <ChannelVideos videos={channel?.data} />
     </div>
   );
-}
+};
 
 export { ChannelPage };

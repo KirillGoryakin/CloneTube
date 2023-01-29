@@ -16,7 +16,7 @@ describe('Utils', () => {
   });
 
   it('should return options object with "getOptions" function', () => {
-    const testParams = { id: 123, someParam: 'test', another: true, };
+    const testParams = { id: 123, someParam: 'test', another: true };
     
     const expectedOptions = {
       method: 'GET',
@@ -25,7 +25,7 @@ describe('Utils', () => {
       headers: {
         'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
         'X-RapidAPI-Host': process.env.REACT_APP_X_RAPID_API_HOST,
-      }
+      },
     };
 
     expect(getOptions('someEndPoint', testParams)).toEqual(expectedOptions);

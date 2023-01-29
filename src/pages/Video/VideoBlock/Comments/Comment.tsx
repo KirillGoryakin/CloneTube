@@ -11,7 +11,10 @@ const Comment: React.FC<Props> = ({ comment }) => {
     <div className={style.comment}>
       <div className={style.avatar}>
         <Link to={`/channel/${comment.authorChannelId}`}>
-          <img src={comment.authorProfileImageUrl.slice(-1)[0].url} alt='Avatar' />
+          <img
+            src={comment.authorProfileImageUrl.slice(-1)[0].url}
+            alt='Avatar'
+          />
         </Link>
       </div>
 
@@ -34,6 +37,6 @@ const Comment: React.FC<Props> = ({ comment }) => {
       </div>
     </div>
   );
-}
+};
 
 export { Comment };

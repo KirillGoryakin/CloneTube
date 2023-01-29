@@ -55,6 +55,6 @@ const VideoBlock: React.FC<Props> = (props) => {
       <Comments videoId={videoId} />
     </div>
   );
-}
+};
 
 export { VideoBlock };

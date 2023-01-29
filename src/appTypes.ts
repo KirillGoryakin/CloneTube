@@ -3,7 +3,7 @@ export interface Thumbnail {
   url: string;
   width: number;
   height: number;
-};
+}
 
 export interface VideoInfo {
   id: string;
@@ -25,7 +25,7 @@ export interface VideoInfo {
   category: string;
   publishDate: string;
   uploadDate: string;
-};
+}
 
 export interface TrendingVideoInfo {
   videoId: string;
@@ -38,7 +38,7 @@ export interface TrendingVideoInfo {
   lengthText: string;
   thumbnail: Thumbnail[];
   channelThumbnail: Thumbnail[];
-};
+}
 
 export interface RelatedVideoInfo {
   type: string;
@@ -51,7 +51,7 @@ export interface RelatedVideoInfo {
   channelTitle: string;
   channelId: string;
   authorThumbnail: Thumbnail[];
-};
+}
 
 export interface SearchVideoInfo {
   type: string;
@@ -65,13 +65,13 @@ export interface SearchVideoInfo {
   lengthText: string;
   thumbnail: Thumbnail[];
   channelThumbnail: Thumbnail[];
-};
+}
 
 export interface SearchInfo {
   continuation: string;
   estimatedResults: string;
   data: SearchVideoInfo[];
-};
+}
 
 export interface ChannelVideoInfo {
   videoId: string;
@@ -80,7 +80,7 @@ export interface ChannelVideoInfo {
   publishedText: string;
   lengthText: string;
   thumbnail: Thumbnail[];
-};
+}
 
 export interface ChannelInfo {
   meta: {
@@ -99,7 +99,7 @@ export interface ChannelInfo {
   };
   continuation: string;
   data: ChannelVideoInfo[];
-};
+}
 
 export interface Comment {
   commentId: string;
@@ -111,11 +111,11 @@ export interface Comment {
   likesCount: string;
   replyCount: number;
   replyToken: string;
-};
+}
 
 export interface VideoComments {
   commentsCount: string;
   continuation: string;
   data: Comment[];
   msg: string;
-};
+}

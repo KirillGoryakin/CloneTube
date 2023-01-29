@@ -56,6 +56,6 @@ const RelatedVideoCard: React.FC<Props> = ({ video }) => {
       </div>
     </div>
   );
-}
+};
 
 export { RelatedVideoCard };

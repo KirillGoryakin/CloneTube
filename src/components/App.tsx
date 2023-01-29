@@ -1,4 +1,7 @@
-import { createBrowserRouter, createRoutesFromChildren } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromChildren,
+} from 'react-router-dom';
 import { Route, RouterProvider } from 'react-router';
 import { Layout } from './Layout';
 import { HomePage } from 'pages/Home';
@@ -12,7 +15,7 @@ const router = createBrowserRouter(createRoutesFromChildren(
     <Route path='channel/:channelId' element={<ChannelPage />} />
     <Route path='video/:videoId' element={<VideoPage />} />
     <Route path='search' element={<SearchPage />} />
-  </Route>
+  </Route>,
 ));
 
 const App = () => <RouterProvider router={router} />;
