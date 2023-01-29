@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { getOptions } from 'utils';
 import { Comment } from './Comment';
+import { CommentsTablet } from './CommentsTablet';
 import style from './style.module.scss';
 
 type Props = {
@@ -12,6 +13,7 @@ type Props = {
 const Comments: React.FC<Props> = ({ videoId }) => {
   const [comments, setComments] = useState<CommentType[]>([]);
   const [count, setCount] = useState<string>('');
+  const tablet = window.innerWidth <= 900;
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -24,6 +26,9 @@ const Comments: React.FC<Props> = ({ videoId }) => {
 
     fetchComments();
   }, [videoId]);
+
+  if (tablet)
+    return <CommentsTablet comments={comments} count={count} />;
   
   return (
     <div className={style.comments}>
