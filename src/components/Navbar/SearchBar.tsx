@@ -4,6 +4,7 @@ import { TfiSearch } from 'react-icons/tfi';
 import { useNavigate } from 'react-router';
 import { searchContext } from './Navbar';
 import ClickAwayListener from 'react-click-away-listener';
+import { useSearchParams } from 'react-router-dom';
 
 type SendFormEvent = {
   target: {
@@ -13,9 +14,12 @@ type SendFormEvent = {
 
 const SearchBar = () => {
   const navigate = useNavigate();
+  const [params] = useSearchParams();
+  
   const [search, setSearch] = useContext(searchContext);
   const formRef = createRef<HTMLFormElement>();
   const inputRef = createRef<HTMLInputElement>();
+
   const mobile = window.innerWidth <= 600;
 
   const handleSubmit: React.FormEventHandler = (e) => {
@@ -55,6 +59,7 @@ const SearchBar = () => {
             <input
               name='s'
               placeholder='Search...'
+              defaultValue={params.get('s') || ''}
               ref={inputRef}
             />
           </label>

@@ -14,7 +14,10 @@ const SearchPage = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       const { data } = await axios(
-        getOptions('search', { query: params.get('s') }));
+        getOptions('search', {
+          query: params.get('s'),
+          type: 'video',
+        }));
       
       setSearch(data);
     };

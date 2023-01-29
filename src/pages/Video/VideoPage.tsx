@@ -30,6 +30,8 @@ const VideoPage = () => {
 
     fetchVideoInfo();
     fetchRelatedVideos();
+
+    window.scrollTo(0, 0);
   }, [videoId]);
 
   useEffect(() => {

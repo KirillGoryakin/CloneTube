@@ -2,7 +2,8 @@
 .videoCard {
   display: flex;
   width: 100%;
-  gap: 4rem;
+  gap: 2rem;
+  padding: 0 2rem;
   
   cursor: pointer;
 
@@ -87,6 +88,28 @@
       font-weight: 400;
       line-height: 2.2rem;
       color: #aaa;
+      word-break: break-all;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .videoCard {
+    flex-direction: column;
+    padding: 0;
+    gap: 1rem;
+
+    .thumbnail {
+      width: 100%;
+      height: auto;
+  
+      img {
+        border-radius: 0;
+      }
+    }
+
+    .videoMeta {
+      padding: 0 2rem;
     }
   }
 }
