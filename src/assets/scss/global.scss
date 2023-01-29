@@ -40,3 +40,9 @@ body {
   margin: 8rem auto 0;
   padding: 6rem 0;
 }
+
+@media (max-width: 600px) {
+  .main-container {
+    padding-top: 0;
+  }
+}

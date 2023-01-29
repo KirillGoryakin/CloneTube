@@ -54,3 +54,21 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .videoCard {
+    width: 100%;
+
+    .thumbnail {
+      height: auto;
+  
+      img {
+        border-radius: 0;
+      }
+    }
+
+    .videoMeta {
+      padding: 0 2rem;
+    }
+  }
+}

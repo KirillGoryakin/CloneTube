@@ -53,3 +53,39 @@
     padding-top: 4rem;
   }
 }
+
+@media (max-width: 1200px) {
+  .channel .videos {
+    width: 890px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .channel .videos {
+    width: 590px;
+  }
+}
+
+@media (max-width: 600px) {
+  .channel {
+
+    .topbar {
+      gap: 1rem;
+      padding: 2rem 2rem;
+  
+      .meta {
+
+        .title {
+          font-size: 2.5rem;
+          line-height: 3rem;
+        }
+      }
+    }
+
+    .videos {
+      width: 100%;
+    }
+  }
+}

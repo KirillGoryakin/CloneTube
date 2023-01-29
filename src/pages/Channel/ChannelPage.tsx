@@ -10,7 +10,7 @@ import { ChannelVideos } from './ChannelVideos';
 const ChannelPage = () => {
   const params = useParams();
   const { channelId } = params;
-  
+
   const [channel, setChannel] = useState<ChannelInfo>();
 
   useEffect(() => {
