@@ -1,3 +1,4 @@
+import { motion, Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TrendingVideoInfo } from 'appTypes';
@@ -5,7 +6,16 @@ import style from './style.module.scss';
 import { VideoCard } from 'components/VideoCard';
 
 const HomePage = () => {
-  const [videos, setVideos] = useState<TrendingVideoInfo[]>([]);
+  const [videos, setVideos] = useState<TrendingVideoInfo[]>();
+
+  const videosVariants: Variants = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -26,12 +36,19 @@ const HomePage = () => {
     fetchVideos();
   }, []);
   
+  if (!videos) return null;
+  
   return (
-    <div className={style.videoGrid}>
+    <motion.div
+      className={style.videoGrid}
+      variants={videosVariants}
+      initial='initial'
+      animate='animate'
+    >
       {videos.map(video => (
         <VideoCard key={video.videoId} video={video} variant='trending' />
       ))}
-    </div>
+    </motion.div>
   );
 };
 

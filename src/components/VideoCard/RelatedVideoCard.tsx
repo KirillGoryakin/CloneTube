@@ -2,6 +2,7 @@ import { RelatedVideoInfo } from 'appTypes';
 import { Link } from 'react-router-dom';
 import { formatNumber } from 'utils';
 import style from './related.module.scss';
+import { motion, Variants } from 'framer-motion';
 
 type Props = {
   video: RelatedVideoInfo;
@@ -19,8 +20,16 @@ const RelatedVideoCard: React.FC<Props> = ({ video }) => {
     publishedTimeText,
   } = video;
 
+  const relatedVideoVariants: Variants = {
+    'initial': { x: 200 },
+    'animate': { x: 0 },
+  };
+
   return (
-    <div className={style.videoCard}>
+    <motion.div
+      className={style.videoCard}
+      variants={relatedVideoVariants}
+    >
       <Link
         className={style.thumbnail}
         to={`/video/${videoId}`}
@@ -54,7 +63,7 @@ const RelatedVideoCard: React.FC<Props> = ({ video }) => {
           {`${formatNumber(Number(viewCount))} views • ${publishedTimeText}`}
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

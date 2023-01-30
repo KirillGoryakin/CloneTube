@@ -1,3 +1,4 @@
+import { motion, Variants } from 'framer-motion';
 import { TrendingVideoInfo } from 'appTypes';
 import { Link } from 'react-router-dom';
 import { formatNumber } from 'utils';
@@ -20,8 +21,16 @@ const TrendingVideoCard: React.FC<Props> = ({ video }) => {
     publishedText,
   } = video;
 
+  const videoVariants: Variants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+  };
+
   return (
-    <div className={style.videoCard}>
+    <motion.div
+      className={style.videoCard}
+      variants={videoVariants}
+    >
       <Link
         className={style.thumbnail}
         to={`/video/${videoId}`}
@@ -67,7 +76,7 @@ const TrendingVideoCard: React.FC<Props> = ({ video }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

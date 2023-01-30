@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import style from './style.module.scss';
 import logo from 'assets/images/logo.png';
 import { SearchBar } from './SearchBar';
@@ -13,7 +14,11 @@ const Navbar = () => {
   const [search, setSearch] = useState(false);
   
   return (
-    <header className={style.header}>
+    <motion.header
+      className={style.header}
+      initial={{ y: -300 }}
+      animate={{ y: 0 }}
+    >
       <nav>
         {mobile && search ? null : (
           <Link to='/' className={style.logo}>
@@ -25,7 +30,7 @@ const Navbar = () => {
           <SearchBar />
         </searchContext.Provider>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 

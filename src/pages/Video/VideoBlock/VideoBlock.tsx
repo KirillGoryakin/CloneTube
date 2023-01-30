@@ -1,4 +1,5 @@
 import { ChannelInfo, VideoInfo } from 'appTypes';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import { Comments } from './Comments';
@@ -18,7 +19,11 @@ const VideoBlock: React.FC<Props> = (props) => {
   } = props;
   
   return (
-    <div className={style.videoBlock}>
+    <motion.div
+      className={style.videoBlock}
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+    >
       <YouTube
         className={style.video}
         videoId={videoId}
@@ -53,7 +58,7 @@ const VideoBlock: React.FC<Props> = (props) => {
       </div>
 
       <Comments videoId={videoId} />
-    </div>
+    </motion.div>
   );
 };
 

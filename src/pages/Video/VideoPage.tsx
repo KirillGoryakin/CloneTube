@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import style from './style.module.scss';
+import { motion, Variants } from 'framer-motion';
 import { ChannelInfo, RelatedVideoInfo, VideoInfo } from 'appTypes';
 import { getOptions } from 'utils';
 import { VideoBlock } from './VideoBlock';
@@ -12,8 +13,18 @@ const VideoPage = () => {
   const { videoId } = params;
 
   const [videoInfo, setVideoInfo] = useState<VideoInfo>();
-  const [relatedVideos, setRelatedVideos] = useState<RelatedVideoInfo[]>();
+  const [relatedVideos, setRelatedVideos] =
+    useState<RelatedVideoInfo[] | null>();
   const [channel, setChannel] = useState<ChannelInfo>();
+
+  const relatedVideosVariants: Variants = {
+    'initial': {},
+    'animate': {
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
 
   useEffect(() => {
     const fetchVideoInfo = async () => {
@@ -28,6 +39,8 @@ const VideoPage = () => {
       setRelatedVideos(data.data);
     };
 
+    setRelatedVideos(null);
+    
     fetchVideoInfo();
     fetchRelatedVideos();
 
@@ -53,11 +66,18 @@ const VideoPage = () => {
         channel={channel}
       />
 
-      <div className={style.relatedVideos}>
-        {relatedVideos?.map(video => (
-          <VideoCard key={video.videoId} video={video} variant='related' />
-        ))}
-      </div>
+      {relatedVideos && (
+        <motion.div
+          className={style.relatedVideos}
+          variants={relatedVideosVariants}
+          initial='initial'
+          animate='animate'
+        >
+          {relatedVideos?.map(video => (
+            <VideoCard key={video.videoId} video={video} variant='related' />
+          ))}
+        </motion.div>
+      )}
     </div>
   );
 };
