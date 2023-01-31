@@ -1,5 +1,6 @@
 import axios from 'axios';
 import style from './style.module.scss';
+import { motion } from 'framer-motion';
 import { ChannelInfo } from 'appTypes';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
@@ -26,10 +27,13 @@ const ChannelPage = () => {
   
   return (
     <div className={style.channel}>
-      <img
+      <motion.img
         className={style.banner}
         src={channel?.meta.image.banner.slice(-1)[0].url}
         alt='Banner'
+        initial={{ opacity: 0, y: -200 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
       />
 
       <TopBar channel={channel} />

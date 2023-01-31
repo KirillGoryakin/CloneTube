@@ -1,5 +1,6 @@
 import { ChannelInfo } from 'appTypes';
 import style from './style.module.scss';
+import { motion } from 'framer-motion';
 
 type Props = {
   channel: ChannelInfo | undefined;
@@ -7,7 +8,12 @@ type Props = {
 
 const TopBar: React.FC<Props> = ({ channel }) => {
   return (
-    <div className={style.topbar}>
+    <motion.div
+      className={style.topbar}
+      initial={{ opacity: 0, y: -200 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1 }}
+    >
       <div className={style.avatar}>
         <img src={channel?.meta.thumbnail.slice(-1)[0].url} alt='Avatar' />
       </div>
@@ -20,7 +26,7 @@ const TopBar: React.FC<Props> = ({ channel }) => {
           {`${channel?.meta.subscriberCount} subscribers`}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

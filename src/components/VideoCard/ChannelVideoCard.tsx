@@ -2,6 +2,7 @@ import { ChannelVideoInfo } from 'appTypes';
 import { Link } from 'react-router-dom';
 import { formatNumber } from 'utils';
 import style from './channel.module.scss';
+import { motion, Variants } from 'framer-motion';
 
 type Props = {
   video: ChannelVideoInfo;
@@ -17,8 +18,16 @@ const ChannelVideoCard: React.FC<Props> = ({ video }) => {
     publishedText,
   } = video;
 
+  const channelVideoVariants: Variants = {
+    'initial': { opacity: 0, y: -200 },
+    'animate': { opacity: 1, y: 0 },
+  };
+  
   return (
-    <div className={style.videoCard}>
+    <motion.div
+      className={style.videoCard}
+      variants={channelVideoVariants}
+    >
       <Link
         className={style.thumbnail}
         to={`/video/${videoId}`}
@@ -46,7 +55,7 @@ const ChannelVideoCard: React.FC<Props> = ({ video }) => {
           {`${formatNumber(Number(viewCount))} views • ${publishedText}`}
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

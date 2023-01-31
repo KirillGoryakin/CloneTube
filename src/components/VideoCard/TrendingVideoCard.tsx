@@ -22,8 +22,8 @@ const TrendingVideoCard: React.FC<Props> = ({ video }) => {
   } = video;
 
   const videoVariants: Variants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
+    initial: { opacity: 0, y: -200 },
+    animate: { opacity: 1, y: 0 },
   };
 
   return (

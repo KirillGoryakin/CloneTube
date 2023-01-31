@@ -2,6 +2,7 @@ import { SearchVideoInfo } from 'appTypes';
 import { Link } from 'react-router-dom';
 import { formatNumber } from 'utils';
 import style from './search.module.scss';
+import { motion, Variants } from 'framer-motion';
 
 type Props = {
   video: SearchVideoInfo;
@@ -21,8 +22,16 @@ const SearchVideoCard: React.FC<Props> = ({ video }) => {
     description,
   } = video;
 
+  const searchVideoVariants: Variants = {
+    'initial': { opacity: 0, x: -200 },
+    'animate': { opacity: 1, x: 0 },
+  };
+
   return (
-    <div className={style.videoCard}>
+    <motion.div
+      className={style.videoCard}
+      variants={searchVideoVariants}
+    >
       <Link
         className={style.thumbnail}
         to={`/video/${videoId}`}
@@ -69,7 +78,7 @@ const SearchVideoCard: React.FC<Props> = ({ video }) => {
           {description}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
