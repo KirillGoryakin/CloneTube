@@ -4,6 +4,7 @@ import axios from 'axios';
 import { TrendingVideoInfo } from 'appTypes';
 import style from './style.module.scss';
 import { VideoCard } from 'components/VideoCard';
+import { getOptions } from 'utils';
 
 const HomePage = () => {
   const [videos, setVideos] = useState<TrendingVideoInfo[]>();
@@ -19,17 +20,9 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const options = {
-        method: 'GET',
-        url: 'https://yt-api.p.rapidapi.com/trending',
-        params: { geo: 'US' },
-        headers: {
-          'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
-          'X-RapidAPI-Host': process.env.REACT_APP_X_RAPID_API_HOST,
-        },
-      };
+      const { data } = await axios(
+        getOptions('trending', { geo: 'US' }));
 
-      const { data } = await axios.request(options);
       setVideos(data.data);
     };
 
